@@ -28,7 +28,7 @@ public class GuiHandler implements IGuiHandler
 	{
 		if (ID == Reference.GUI_TRAVEL_FURNACE)return new GuiTravelFurnace(player.inventory, (TileEntityTravelFurnace)world.getTileEntity(new BlockPos(x,y,z)));
 		if (ID == Reference.GUI_TRAVEL_WORKBENCH)return new GuiTravelWorkBench(player.inventory, world, x, y, z);
-		if (ID == Reference.GUI_TRAVEL_WORKBENCH)return new GuiTravelPortal();
+		if (ID == Reference.GUI_TRAVEL_WORKBENCH)return new GuiTravelPortal(null);
 		return null;
 	}
 

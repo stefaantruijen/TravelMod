@@ -1,9 +1,0 @@
-{
-	"variants":
-	{
-		"facing=north": { "model": "travmod:travel_glass_pane" },
-		"facing=east": { "model": "travmod:travel_glass_pane", "y": 90 },
-		"facing=south": { "model": "travmod:travel_glass_pane", "y": 180 },
-		"facing=west": { "model": "travmod:travel_glass_pane", "y": 270 }
-	}
-}

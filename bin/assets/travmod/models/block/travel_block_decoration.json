@@ -1,6 +1,0 @@
-{
-	"parent": "block/cube_all",
-	"textures": {
-		"all": "travmod:blocks/travel_block_decoration"
-	}
-}

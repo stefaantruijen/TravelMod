@@ -1,8 +1,0 @@
-package com.tvdp.travelmod.objects.blocks.machines.portal;
-
-import net.minecraft.command.ICommandSender;
-
-public abstract class TravelPortalBaseLogic implements ICommandSender
-{
-	
-}

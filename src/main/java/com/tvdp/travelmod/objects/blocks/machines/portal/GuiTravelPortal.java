@@ -1,10 +1,12 @@
 package com.tvdp.travelmod.objects.blocks.machines.portal;
 
 import java.io.IOException;
-
-import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.lwjgl.input.Keyboard;
+
+import com.tvdp.travelmod.world.WorldLocationSave;
 
 import io.netty.buffer.Unpooled;
 import net.minecraft.client.gui.GuiButton;
@@ -13,11 +15,7 @@ import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.client.CPacketCustomPayload;
-import net.minecraft.tileentity.CommandBlockBaseLogic;
-import net.minecraft.tileentity.TileEntityCommandBlock;
-import net.minecraft.util.TabCompleter;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
 
 public class GuiTravelPortal extends GuiScreen
 {
@@ -28,9 +26,15 @@ public class GuiTravelPortal extends GuiScreen
     private GuiButton doneBtn;
     private GuiButton cancelBtn;
     private GuiButton travelBtn;
+    private Map<BlockPos, String> locations = new HashMap<BlockPos, String>();
 
     public GuiTravelPortal(TravelPortalTileEntity commandBlockIn)
     {
+    	WorldLocationSave save = (WorldLocationSave)this.mc.world.loadData(WorldLocationSave.class, "TRAVEL_LOCATIONS");
+    	for (int i = 0; i < save.x.length && i < save.y.length && i < save.z.length && i < save.id.length; ++i)
+    	{
+    		locations.put(new BlockPos(save.x[i], save.y[i], save.z[i]), save.id[i]);
+    	}
         this.commandBlock = commandBlockIn;
     }
 

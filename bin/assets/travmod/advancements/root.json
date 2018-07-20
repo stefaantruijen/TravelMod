@@ -1,0 +1,16 @@
+{
+  "display": {
+    "icon": {
+      "item": "travmod:travel_block"
+    },
+    "title": "Travel Dimension",
+    "description": "Get into the Travel Dimension",
+    "background": "travmod:textures/blocks/travel_block.png"
+  },
+
+  "criteria": {
+    "travel_root": {
+      "trigger": "travmod:travel_dimension_entered"
+    }
+  }
+}

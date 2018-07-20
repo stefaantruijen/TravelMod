@@ -1,0 +1,8 @@
+package com.tvdp.travelmod.advancements;
+
+import net.minecraft.advancements.ICriterionTrigger;
+
+public class BasicTrigger implements ICriterionTrigger, IModTrigger
+{
+
+}

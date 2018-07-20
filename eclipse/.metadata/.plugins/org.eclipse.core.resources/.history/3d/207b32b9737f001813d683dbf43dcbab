@@ -1,0 +1,75 @@
+package com.tvdp.travelmod.objects.blocks.machines.workbench;
+
+import java.util.Map;
+import java.util.Map.Entry;
+
+import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.Table;
+import com.tvdp.travelmod.init.BlockInit;
+import com.tvdp.travelmod.init.ItemInit;
+
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+
+public class TravelWorkBenchRecipes
+{
+	private static final TravelWorkBenchRecipes INSTANCE = new TravelWorkBenchRecipes();
+	private final Table<ItemStack, ItemStack[], ItemStack> craftingList = HashBasedTable.<ItemStack, ItemStack[], ItemStack>create();
+	
+	public static TravelWorkBenchRecipes getInstance()
+	{
+		return INSTANCE;
+	}
+	
+	private TravelWorkBenchRecipes() 
+	{
+		addTravelRecipe(new ItemStack(BlockInit.ANDAMANTIUM_BLOCK), new ItemStack(BlockInit.COPPER_BLOCK), new ItemStack(ItemInit.TRAVEL_DUST), new ItemStack(ItemInit.TRAVEL_REFINER), new ItemStack(BlockInit.ANDAMANTIUM_BLOCK), new ItemStack(BlockInit.COPPER_BLOCK), new ItemStack(Blocks.COAL_BLOCK), new ItemStack(Blocks.COAL_BLOCK), new ItemStack(BlockInit.TRAVEL_GLASS_PANE, 2), new ItemStack(BlockInit.TRAVEL_GLASS_PANE, 2), new ItemStack(BlockInit.TRAVEL_FURNACE));
+	}
+
+	
+	public void addTravelRecipe(ItemStack input1, ItemStack input2, ItemStack input3, ItemStack input4, ItemStack input5, ItemStack input6, ItemStack input7, ItemStack input8, ItemStack input9, ItemStack input10, ItemStack result) 
+	{
+		if(getTravelResult(input1, input2, input3, input4, input5, input6, input7, input8, input9, input10) != ItemStack.EMPTY) return;
+		
+		this.craftingList.put(input1, input2, table4);
+	}
+	
+	public ItemStack getTravelResult(ItemStack input1, ItemStack input2, ItemStack input3, ItemStack input4, ItemStack input5, ItemStack input6, ItemStack input7, ItemStack input8, ItemStack input9, ItemStack input10) 
+	{
+		ItemStack[] arrayOfStacks = { input1, input2, input3, input4, input5, input6, input7, input8, input9 };
+		for(Entry<ItemStack[], Map<ItemStack, ItemStack>> entry : this.craftingList.columnMap().entrySet()) 
+		{
+			ItemStack[] passArray = entry.getKey();
+			boolean arraysEquals = true;
+			
+			for (int i = 0; i < entry.getKey().length; i++)
+			{
+				if (passArray[i] != arrayOfStacks[i])
+				{
+					arraysEquals = false;
+				}
+			}
+			
+			if (arraysEquals)
+			{
+				for (Entry<ItemStack, ItemStack> ent : entry.getValue())
+			}
+		}
+		return ItemStack.EMPTY;
+	}
+	
+	public void shrinkInputs(ItemStack input1, ItemStack input2, ItemStack input3, ItemStack input4, ItemStack input5, ItemStack input6, ItemStack input7, ItemStack input8, ItemStack input9, ItemStack input10)
+	{
+		
+	}
+	
+	private boolean compareItemStacks(ItemStack stack1, ItemStack stack2)
+	{
+		return (stack2.getItem() == stack1.getItem() && (stack2.getMetadata() == 32767 || stack2.getMetadata() == stack1.getMetadata())) && stack1.getCount() >= stack2.getCount();
+	}
+	
+	public Table<ItemStack, ItemStack[], ItemStack> getCraftingList() 
+	{
+		return this.craftingList;
+	}
+}

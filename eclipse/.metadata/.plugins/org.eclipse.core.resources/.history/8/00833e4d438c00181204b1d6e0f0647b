@@ -1,0 +1,11 @@
+package com.tvdp.travelmod.objects.blocks.machines.portal;
+
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.GuiTextField;
+import net.minecraft.util.ITabCompleter;
+
+public class GuiTravelPortal extends GuiScreen
+{
+	private GuiTextField idTextField;
+    private GuiTextField previousOutputTextField;
+}

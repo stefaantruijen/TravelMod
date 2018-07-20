@@ -1,0 +1,13 @@
+{
+	"parent": "block/orientable",
+	"textures":
+	{
+		"particle": "travmod:blocks/travel_furnace_front_off",
+		"up": "travmod:blocks/travel_furnace_up_off",
+		"down": "travmod:blocks/travel_furnace_down_off",
+		"north": "travmod:blocks/travel_furnace_front_on",
+		"east": "travmod:blocks/travel_furnace_side1_on",
+		"south": "travmod:blocks/travel_furnace_side2_on",
+		"west": "travmod:blocks/travel_furnace_side3_on"
+	}
+}

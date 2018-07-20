@@ -1,0 +1,6 @@
+package com.tvdp.travelmod.advancements;
+
+public class BasicTrigger implements ICriterionTrigger, IModTrigger
+{
+
+}

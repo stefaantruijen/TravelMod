@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"X"
+	],
+
+	"key": {
+		"X": {
+			"item": "travmod:copper_block"
+		}
+	},
+
+	"result": {
+		"item": "travmod:copper_ingot",
+		"count": 9
+	}
+}

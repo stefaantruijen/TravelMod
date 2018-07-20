@@ -1,0 +1,6 @@
+package com.tvdp.travelmod.objects.blocks.machines.portal;
+
+public class TravelPortalTileEntity extends TileEntity
+{
+
+}

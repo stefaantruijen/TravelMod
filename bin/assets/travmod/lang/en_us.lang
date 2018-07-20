@@ -1,0 +1,27 @@
+item.andamantium_ingot.name=Andamantium Ingot
+item.copper_ingot.name=Copper Ingot
+item.travel_pickaxe.name=Travel Tool
+item.travel_star.name=Travel Star
+item.travel_dust.name=Travel Dust
+item.travel_refiner.name=Travel Refiner
+
+container.travel_furnace=Travel Furnace!
+container.travel_workbench=Travel WorkBench!
+
+tile.copper_ore.name=Copper Ore
+tile.andamantium_ore.name=Andamantium Ore
+tile.travel_ore.name=Travel Ore
+
+tile.copper_block.name=Copper Block
+tile.andamantium_block.name=Andamantium Block
+tile.copper_andamantium_compressed.name=Copper & Andamantium Compressed Block!
+
+tile.travel_block.name=Travel Dimension Block
+tile.travel_block_portal.name=Travel Dimension Portal Block
+tile.travel_block_decoration.name=Travel Dimension Decoration Block
+tile.travel_furnace.name=Travel Furnace!
+tile.travel_workbench.name=Travel Workbech
+tile.travel_glass.name=Travel Glass
+tile.travel_glass_pane.name=Travel Glass Pane
+
+itemGroup.travelmodmaintab=Travel Mod

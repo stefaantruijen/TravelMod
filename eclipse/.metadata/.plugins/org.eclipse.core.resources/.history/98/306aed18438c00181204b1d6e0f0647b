@@ -1,0 +1,9 @@
+package com.tvdp.travelmod.objects.blocks.machines.portal;
+
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.util.ITabCompleter;
+
+public class GuiTravelPortal extends GuiScreen implements ITabCompleter
+{
+	
+}

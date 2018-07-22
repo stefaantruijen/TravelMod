@@ -9,7 +9,7 @@ import net.minecraft.advancements.ICriterionTrigger.Listener;
 import net.minecraft.advancements.PlayerAdvancements;
 import net.minecraft.entity.player.EntityPlayerMP;
 
-public class BasicTriggerListeners {
+class BasicTriggerListeners {
 	private final PlayerAdvancements playerAdvancements;
 	private final Set<Listener<BasicTriggerCriterionInstance>> listeners = new HashSet<>();
 

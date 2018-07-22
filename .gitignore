@@ -3,3 +3,5 @@ bin/
 build/
 .settings/
 **.DS_Store
+.classpath
+run/

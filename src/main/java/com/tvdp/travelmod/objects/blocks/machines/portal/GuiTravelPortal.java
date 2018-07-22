@@ -52,7 +52,7 @@ public class GuiTravelPortal extends GuiScreen
      */
     public void initGui()
     {
-        final TravelPortalBaseLogic commandBlockBaseLogic = this.commandBlock.getCommandBlockLogic();
+        final AbstractTravelPortalBaseLogic commandBlockBaseLogic = this.commandBlock.getCommandBlockLogic();
         Keyboard.enableRepeatEvents(true);
         this.buttonList.clear();
         this.doneBtn = this.addButton(new GuiButton(0, this.width / 2 - 4 - 100, this.height / 4 + 120 + 12, 100, 20, I18n.format("gui.done")));
@@ -67,8 +67,8 @@ public class GuiTravelPortal extends GuiScreen
 
     public void updateGui()
     {
-        TravelPortalBaseLogic commandblockbaselogic = this.commandBlock.getCommandBlockLogic();
-        this.idTextField.setText(commandblockbaselogic.getCommand());
+		AbstractTravelPortalBaseLogic commandBlockBaseLogic = this.commandBlock.getCommandBlockLogic();
+		this.idTextField.setText(commandBlockBaseLogic.getCommand());
         this.doneBtn.enabled = true;
         this.travelBtn.enabled = true;
     }
@@ -88,7 +88,7 @@ public class GuiTravelPortal extends GuiScreen
     {
         if (button.enabled)
         {
-            TravelPortalBaseLogic commandblockbaselogic = this.commandBlock.getCommandBlockLogic();
+			AbstractTravelPortalBaseLogic commandBlockBaseLogic = this.commandBlock.getCommandBlockLogic();
 
             if (button.id == 1)
             {
@@ -96,16 +96,16 @@ public class GuiTravelPortal extends GuiScreen
             }
             else if (button.id == 0)
             {
-                PacketBuffer packetbuffer = new PacketBuffer(Unpooled.buffer());
-                commandblockbaselogic.fillInInfo(packetbuffer);
-                packetbuffer.writeString(this.idTextField.getText());
-                this.mc.getConnection().sendPacket(new CPacketCustomPayload("MC|AutoCmd", packetbuffer));
+				PacketBuffer packetBuffer = new PacketBuffer(Unpooled.buffer());
+				commandBlockBaseLogic.fillInInfo(packetBuffer);
+				packetBuffer.writeString(this.idTextField.getText());
+				this.mc.getConnection().sendPacket(new CPacketCustomPayload("MC|AutoCmd", packetBuffer));
 
                 this.mc.displayGuiScreen((GuiScreen)null);
             }
             else if (button.id == 2)
             {
-                commandblockbaselogic.trigger(this.mc.world);
+				commandBlockBaseLogic.trigger(this.mc.world);
             }
         }
     }

@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public abstract class TravelPortalBaseLogic implements ICommandSender
+public abstract class AbstractTravelPortalBaseLogic implements ICommandSender
 {
     /** The command stored in the command block. */
     private String IdStored = "";
@@ -90,14 +90,14 @@ public abstract class TravelPortalBaseLogic implements ICommandSender
                         {
                             public String call() throws Exception
                             {
-                                return TravelPortalBaseLogic.this.getCommand();
+                                return AbstractTravelPortalBaseLogic.this.getCommand();
                             }
                         });
                         crashreportcategory.addDetail("Name", new ICrashReportDetail<String>()
                         {
                             public String call() throws Exception
                             {
-                                return TravelPortalBaseLogic.this.getName();
+                                return AbstractTravelPortalBaseLogic.this.getName();
                             }
                         });
                         throw new ReportedException(crashreport);

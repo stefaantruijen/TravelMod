@@ -3,7 +3,7 @@ package com.tvdp.travelmod.advancements;
 import net.minecraft.advancements.critereon.AbstractCriterionInstance;
 import net.minecraft.util.ResourceLocation;
 
-public class BasicTriggerCriterionInstance extends AbstractCriterionInstance
+class BasicTriggerCriterionInstance extends AbstractCriterionInstance
 {
 
     /**

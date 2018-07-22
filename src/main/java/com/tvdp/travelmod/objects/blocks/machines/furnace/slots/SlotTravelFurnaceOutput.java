@@ -1,6 +1,5 @@
 package com.tvdp.travelmod.objects.blocks.machines.furnace.slots;
 
-import com.tvdp.travelmod.objects.blocks.machines.furnace.TileEntityTravelFurnace;
 import com.tvdp.travelmod.objects.blocks.machines.furnace.TravelFurnaceRecipes;
 
 import net.minecraft.entity.player.EntityPlayer;

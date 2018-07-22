@@ -1,7 +1,5 @@
 package com.tvdp.travelmod.world;
 
-import java.util.Set;
-
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.storage.WorldSavedData;
 

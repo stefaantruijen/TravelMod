@@ -1,10 +1,7 @@
 package com.tvdp.travelmod.objects.blocks.machines.furnace;
 
-import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
-import com.google.common.collect.Lists;
 import com.tvdp.travelmod.init.ItemInit;
 
 import net.minecraft.entity.item.EntityXPOrb;

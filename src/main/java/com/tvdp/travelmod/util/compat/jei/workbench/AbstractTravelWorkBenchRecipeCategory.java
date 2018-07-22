@@ -3,8 +3,6 @@ package com.tvdp.travelmod.util.compat.jei.workbench;
 import com.tvdp.travelmod.util.Reference;
 
 import mezz.jei.api.IGuiHelper;
-import mezz.jei.api.gui.IDrawableAnimated;
-import mezz.jei.api.gui.IDrawableStatic;
 import mezz.jei.api.recipe.IRecipeCategory;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.util.ResourceLocation;

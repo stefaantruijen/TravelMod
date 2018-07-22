@@ -1,12 +1,6 @@
 package com.tvdp.travelmod.objects.blocks.machines.portal;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import javax.annotation.Nullable;
-
 import io.netty.buffer.ByteBuf;
-import net.minecraft.command.CommandResultStats;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.crash.CrashReportCategory;
@@ -14,10 +8,7 @@ import net.minecraft.crash.ICrashReportDetail;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.tileentity.CommandBlockBaseLogic;
 import net.minecraft.util.ReportedException;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;

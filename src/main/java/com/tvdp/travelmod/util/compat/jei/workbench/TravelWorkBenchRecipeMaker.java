@@ -1,15 +1,10 @@
 package com.tvdp.travelmod.util.compat.jei.workbench;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import com.google.common.collect.Lists;
-import com.google.common.collect.Table;
-import com.tvdp.travelmod.init.ItemInit;
 import com.tvdp.travelmod.objects.blocks.machines.workbench.TravelWorkBenchCraftingManager;
 import com.tvdp.travelmod.objects.blocks.machines.workbench.TravelWorkBenchRecipes;
-import com.tvdp.travelmod.util.compat.jei.furnace.TravelFurnaceRecipe;
 
 import mezz.jei.api.IJeiHelpers;
 import mezz.jei.api.recipe.IStackHelper;

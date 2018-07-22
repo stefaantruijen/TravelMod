@@ -75,9 +75,9 @@ public class TravelGlassPane extends BlockGlass implements IHasModel
 	{
 		if (((EnumFacing)state.getValue(FACING)) == EnumFacing.NORTH || ((EnumFacing)state.getValue(FACING)) == EnumFacing.SOUTH)
 		{
-			return this.GLASS_PANE_AABB_NORTH;
+			return GLASS_PANE_AABB_NORTH;
 		} else {
-			return this.GLASS_PANE_AABB_EAST;
+			return GLASS_PANE_AABB_EAST;
 		}
 	}
 	

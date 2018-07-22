@@ -2,34 +2,21 @@ package com.tvdp.travelmod.advancements;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
-import javax.annotation.Nullable;
-
-import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonSyntaxException;
 import com.tvdp.travelmod.init.DimensionInit;
 import com.tvdp.travelmod.util.Reference;
 
 import net.minecraft.advancements.ICriterionTrigger;
 import net.minecraft.advancements.PlayerAdvancements;
 import net.minecraft.advancements.critereon.AbstractCriterionInstance;
-import net.minecraft.advancements.critereon.TameAnimalTrigger;
-import net.minecraft.block.Block;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.state.BlockStateContainer;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.util.JsonUtils;
 import net.minecraft.util.ResourceLocation;
 
 public class TravelDimensionEnterTrigger implements ICriterionTrigger<TravelDimensionEnterTrigger.Instance> {

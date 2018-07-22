@@ -1,6 +1,5 @@
 package com.tvdp.travelmod.util.compat.jei.workbench;
 
-import com.tvdp.travelmod.init.BlockInit;
 import com.tvdp.travelmod.util.Reference;
 import com.tvdp.travelmod.util.compat.jei.RecipeCategories;
 
@@ -10,8 +9,6 @@ import mezz.jei.api.gui.IGuiItemStackGroup;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import net.minecraft.client.Minecraft;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 
 public class TravelWorkBenchRecipeCategory extends AbstractTravelWorkBenchRecipeCategory<TravelWorkBenchRecipe>
 {

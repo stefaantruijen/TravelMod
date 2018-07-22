@@ -2,13 +2,8 @@ package com.tvdp.travelmod.util.compat.jei.workbench;
 
 import java.util.List;
 
-import com.tvdp.travelmod.objects.blocks.machines.furnace.TravelFurnaceRecipes;
-import com.tvdp.travelmod.util.compat.jei.JEICompat;
-
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeWrapper;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.item.ItemStack;
 
 public class TravelWorkBenchRecipe implements IRecipeWrapper

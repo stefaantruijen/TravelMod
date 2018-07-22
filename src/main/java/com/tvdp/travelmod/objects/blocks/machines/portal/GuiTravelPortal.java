@@ -52,7 +52,7 @@ public class GuiTravelPortal extends GuiScreen
      */
     public void initGui()
     {
-        final TravelPortalBaseLogic commandblockbaselogic = this.commandBlock.getCommandBlockLogic();
+        final TravelPortalBaseLogic commandBlockBaseLogic = this.commandBlock.getCommandBlockLogic();
         Keyboard.enableRepeatEvents(true);
         this.buttonList.clear();
         this.doneBtn = this.addButton(new GuiButton(0, this.width / 2 - 4 - 100, this.height / 4 + 120 + 12, 100, 20, I18n.format("gui.done")));

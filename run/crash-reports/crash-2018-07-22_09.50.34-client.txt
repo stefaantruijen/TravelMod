@@ -1,0 +1,119 @@
+---- Minecraft Crash Report ----
+// Would you like a cupcake?
+
+Time: 7/22/18 9:50 AM
+Description: Updating screen events
+
+java.lang.ClassCastException: com.tvdp.travelmod.objects.blocks.machines.portal.TileEntityTravelPortal cannot be cast to com.tvdp.travelmod.api.IPortalBlockLocationed
+	at com.tvdp.travelmod.objects.blocks.machines.portal.GuiTravelPortal.actionPerformed(GuiTravelPortal.java:102)
+	at com.tvdp.travelmod.objects.blocks.machines.portal.GuiTravelPortal.keyTyped(GuiTravelPortal.java:134)
+	at net.minecraft.client.gui.GuiScreen.handleKeyboardInput(GuiScreen.java:639)
+	at net.minecraft.client.gui.GuiScreen.handleInput(GuiScreen.java:587)
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1884)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1186)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:441)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+	at GradleStart.main(GradleStart.java:25)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Client thread
+Stacktrace:
+	at com.tvdp.travelmod.objects.blocks.machines.portal.GuiTravelPortal.actionPerformed(GuiTravelPortal.java:102)
+	at com.tvdp.travelmod.objects.blocks.machines.portal.GuiTravelPortal.keyTyped(GuiTravelPortal.java:134)
+	at net.minecraft.client.gui.GuiScreen.handleKeyboardInput(GuiScreen.java:639)
+	at net.minecraft.client.gui.GuiScreen.handleInput(GuiScreen.java:587)
+
+-- Affected screen --
+Details:
+	Screen name: com.tvdp.travelmod.objects.blocks.machines.portal.GuiTravelPortal
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityPlayerSP['Player65'/355, l='MpServer', x=226.67, y=71.00, z=339.38]]
+	Chunk stats: MultiplayerChunkCache: 598, 598
+	Level seed: 0
+	Level generator: ID 00 - default, ver 1. Features enabled: false
+	Level generator options: 
+	Level spawn location: World: (240,64,248), Chunk: (at 0,4,8 in 15,15; contains blocks 240,0,240 to 255,255,255), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Level time: 21609 game time, 10201 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
+	Forced entities: 91 total; [EntityCreeper['Creeper'/1048, l='MpServer', x=208.50, y=14.00, z=332.50], EntityCreeper['Creeper'/1049, l='MpServer', x=209.50, y=15.00, z=330.82], EntitySkeleton['Skeleton'/1050, l='MpServer', x=244.50, y=15.00, z=323.50], EntityBat['Bat'/1062, l='MpServer', x=297.53, y=24.33, z=351.88], EntityBat['Bat'/555, l='MpServer', x=196.16, y=23.58, z=272.51], EntityBat['Bat'/1083, l='MpServer', x=173.73, y=15.12, z=375.39], EntityBat['Bat'/1084, l='MpServer', x=207.58, y=24.89, z=361.42], EntityBat['Bat'/1085, l='MpServer', x=222.65, y=24.10, z=354.15], EntityBat['Bat'/1086, l='MpServer', x=221.91, y=23.22, z=354.25], EntityHorse['Horse'/64, l='MpServer', x=155.11, y=70.00, z=278.00], EntityHorse['Horse'/65, l='MpServer', x=158.73, y=71.00, z=324.30], EntityHorse['Horse'/66, l='MpServer', x=156.98, y=71.00, z=321.13], EntityItem['item.item.egg'/578, l='MpServer', x=243.85, y=70.00, z=346.84], EntityChicken['Chicken'/67, l='MpServer', x=159.16, y=71.00, z=327.90], EntityChicken['Chicken'/82, l='MpServer', x=175.14, y=70.00, z=315.43], EntityItem['item.item.egg'/83, l='MpServer', x=165.48, y=71.00, z=313.05], EntityHorse['Horse'/84, l='MpServer', x=172.00, y=70.00, z=326.65], EntityHorse['Horse'/85, l='MpServer', x=167.12, y=69.00, z=334.88], EntityHorse['Horse'/86, l='MpServer', x=168.99, y=69.00, z=335.91], EntityHorse['Horse'/87, l='MpServer', x=167.69, y=70.00, z=325.83], EntityHorse['Horse'/88, l='MpServer', x=176.87, y=69.00, z=327.26], EntityCreeper['Creeper'/1116, l='MpServer', x=262.49, y=19.00, z=318.57], EntitySkeleton['Skeleton'/864, l='MpServer', x=167.75, y=23.34, z=345.18], EntityCreeper['Creeper'/611, l='MpServer', x=194.50, y=49.00, z=391.50], EntitySkeleton['Skeleton'/100, l='MpServer', x=181.50, y=23.00, z=308.50], EntitySpider['Spider'/612, l='MpServer', x=196.70, y=52.10, z=397.04], EntitySpider['Spider'/104, l='MpServer', x=190.70, y=20.00, z=362.70], EntityHorse['Horse'/105, l='MpServer', x=191.01, y=69.00, z=352.09], EntityBat['Bat'/108, l='MpServer', x=182.05, y=43.10, z=414.76], EntitySkeleton['Skeleton'/625, l='MpServer', x=248.49, y=26.00, z=336.71], EntityCreeper['Creeper'/1151, l='MpServer', x=158.50, y=57.00, z=354.50], EntitySkeleton['Skeleton'/1152, l='MpServer', x=181.50, y=28.00, z=306.50], EntityPlayerSP['Player65'/355, l='MpServer', x=226.67, y=71.00, z=339.38], EntitySpider['Spider'/133, l='MpServer', x=200.10, y=24.00, z=358.76], EntityChicken['Chicken'/134, l='MpServer', x=200.11, y=69.00, z=357.46], EntityItem['item.item.egg'/135, l='MpServer', x=200.00, y=69.00, z=357.13], EntitySheep['Sheep'/136, l='MpServer', x=206.45, y=68.00, z=369.55], EntityHorse['Horse'/152, l='MpServer', x=211.44, y=72.00, z=339.87], EntityCreeper['Creeper'/664, l='MpServer', x=233.50, y=19.00, z=410.50], EntityHorse['Horse'/153, l='MpServer', x=212.29, y=71.00, z=354.93], EntitySkeleton['Skeleton'/154, l='MpServer', x=212.75, y=14.00, z=382.64], EntitySkeleton['Skeleton'/155, l='MpServer', x=212.50, y=37.00, z=387.50], EntityZombie['Zombie'/928, l='MpServer', x=221.50, y=25.00, z=346.50], EntityCreeper['Creeper'/673, l='MpServer', x=159.50, y=39.00, z=288.50], EntityCreeper['Creeper'/674, l='MpServer', x=160.50, y=39.00, z=287.50], EntitySkeleton['Skeleton'/1193, l='MpServer', x=179.50, y=21.00, z=264.50], EntityChicken['Chicken'/170, l='MpServer', x=242.92, y=71.00, z=359.14], EntityHorse['Horse'/171, l='MpServer', x=227.67, y=68.00, z=366.01], EntityCreeper['Creeper'/172, l='MpServer', x=225.50, y=35.00, z=382.50], EntitySheep['Sheep'/174, l='MpServer', x=226.78, y=64.00, z=376.47], EntitySheep['Sheep'/176, l='MpServer', x=229.70, y=68.00, z=404.48], EntityChicken['Chicken'/179, l='MpServer', x=248.75, y=69.00, z=314.93], EntityItem['item.item.egg'/180, l='MpServer', x=248.88, y=69.00, z=315.65], EntityChicken['Chicken'/181, l='MpServer', x=246.84, y=69.00, z=314.17], EntityHorse['Horse'/182, l='MpServer', x=242.07, y=70.00, z=352.05], EntityHorse['Horse'/183, l='MpServer', x=253.11, y=70.00, z=352.60], EntityHorse['Horse'/184, l='MpServer', x=237.19, y=70.00, z=336.11], EntityHorse['Horse'/185, l='MpServer', x=253.54, y=69.00, z=352.77], EntityCreeper['Creeper'/1209, l='MpServer', x=180.50, y=27.00, z=307.50], EntitySkeleton['Skeleton'/197, l='MpServer', x=255.77, y=33.00, z=297.52], EntityHorse['Horse'/199, l='MpServer', x=260.77, y=71.00, z=328.14], EntityHorse['Horse'/200, l='MpServer', x=274.52, y=65.00, z=330.05], EntityHorse['Horse'/201, l='MpServer', x=261.65, y=64.00, z=348.76], EntityHorse['Horse'/202, l='MpServer', x=261.22, y=64.00, z=349.87], EntityHorse['Horse'/203, l='MpServer', x=260.17, y=63.00, z=369.77], EntitySheep['Sheep'/204, l='MpServer', x=257.23, y=64.00, z=379.17], EntityBat['Bat'/975, l='MpServer', x=226.26, y=16.18, z=418.49], EntityHorse['Horse'/210, l='MpServer', x=285.21, y=71.00, z=273.49], EntityHorse['Horse'/211, l='MpServer', x=276.06, y=64.00, z=338.13], EntitySheep['Sheep'/213, l='MpServer', x=284.51, y=64.00, z=384.71], EntityHorse['Horse'/220, l='MpServer', x=301.90, y=70.00, z=262.95], EntityHorse['Horse'/221, l='MpServer', x=298.88, y=70.00, z=271.90], EntityHorse['Horse'/222, l='MpServer', x=291.19, y=69.00, z=302.46], EntityHorse['Horse'/223, l='MpServer', x=292.03, y=69.00, z=298.11], EntityHorse['Horse'/224, l='MpServer', x=283.09, y=68.00, z=323.05], EntityHorse['Horse'/225, l='MpServer', x=282.73, y=68.00, z=324.36], EntityHorse['Horse'/226, l='MpServer', x=283.92, y=68.00, z=323.83], EntityHorse['Horse'/227, l='MpServer', x=303.10, y=65.00, z=333.11], EntitySpider['Spider'/995, l='MpServer', x=178.50, y=26.00, z=298.50], EntityZombie['Zombie'/228, l='MpServer', x=295.50, y=28.00, z=338.50], EntityZombie['Zombie'/740, l='MpServer', x=165.50, y=58.00, z=377.50], EntityWitch['Witch'/229, l='MpServer', x=295.50, y=42.00, z=340.50], EntityCreeper['Creeper'/997, l='MpServer', x=251.50, y=35.00, z=395.50], EntityHorse['Horse'/230, l='MpServer', x=292.09, y=63.00, z=364.44], EntityHorse['Horse'/231, l='MpServer', x=293.23, y=63.00, z=364.60], EntitySheep['Sheep'/232, l='MpServer', x=301.36, y=63.00, z=356.76], EntityHorse['Horse'/233, l='MpServer', x=288.15, y=63.00, z=371.02], EntitySheep['Sheep'/234, l='MpServer', x=294.98, y=64.00, z=383.52], EntitySheep['Sheep'/235, l='MpServer', x=294.27, y=69.00, z=405.50], EntitySheep['Sheep'/236, l='MpServer', x=288.58, y=64.00, z=404.55], EntityZombie['Zombie'/1008, l='MpServer', x=250.50, y=28.00, z=347.50]]
+	Retry entities: 0 total; []
+	Server brand: fml,forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:461)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2886)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:462)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+	at GradleStart.main(GradleStart.java:25)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Mac OS X (x86_64) version 10.13.5
+	Java Version: 1.8.0_144, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 538913992 bytes (513 MB) / 1038876672 bytes (990 MB) up to 1038876672 bytes (990 MB)
+	JVM Flags: 3 total; -Xincgc -Xmx1024M -Xms1024M
+	IntCache: cache: 0, tcache: 0, allocated: 13, tallocated: 95
+	FML: MCP 9.42 Powered by Forge 14.23.4.2705 6 mods loaded, 6 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State     | ID        | Version      | Source                           | Signature |
+	|:--------- |:--------- |:------------ |:-------------------------------- |:--------- |
+	| UCHIJAAAA | minecraft | 1.12.2       | minecraft.jar                    | None      |
+	| UCHIJAAAA | mcp       | 9.42         | minecraft.jar                    | None      |
+	| UCHIJAAAA | FML       | 8.0.99.99    | forgeSrc-1.12.2-14.23.4.2705.jar | None      |
+	| UCHIJAAAA | forge     | 14.23.4.2705 | forgeSrc-1.12.2-14.23.4.2705.jar | None      |
+	| UCHIJAAAA | travmod   | 1.0          | bin                              | None      |
+	| UCHIJAAAA | jei       | 4.11.0.202   | jei_1.12.2-4.11.0.202.jar        | None      |
+
+	Loaded coremods (and transformers): 
+	GL info: ' Vendor: 'NVIDIA Corporation' Version: '2.1 NVIDIA-10.4.14 310.90.30.05b27' Renderer: 'NVIDIA GeForce GT 330M OpenGL Engine'
+	Launched Version: 1.12.2
+	LWJGL: 2.9.2
+	OpenGL: NVIDIA GeForce GT 330M OpenGL Engine GL version 2.1 NVIDIA-10.4.14 310.90.30.05b27, NVIDIA Corporation
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because ARB_framebuffer_object is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: 
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	CPU: 4x Intel(R) Core(TM) i5 CPU M 540 @ 2.53GHz

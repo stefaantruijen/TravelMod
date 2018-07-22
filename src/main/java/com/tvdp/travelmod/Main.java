@@ -16,11 +16,13 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION)
 public class Main
 {
 	public static final CreativeTabs TRAVELMODMAINTAB = new TravelModTabMain("travelmodmaintab");
+	public static SimpleNetworkWrapper network;
 	
 	@Instance
 	public static Main instance;
@@ -29,7 +31,12 @@ public class Main
 	public static CommonProxy proxy;
 	
 	@EventHandler
-	public static void preInit(FMLPreInitializationEvent event) { RegistryHandler.otherRegistries(); }
+	public static void preInit(FMLPreInitializationEvent event) 
+	{
+		RegistryHandler.otherRegistries();
+		//Main.network = NetworkRegistry.INSTANCE.newSimpleChannel(Reference.MODID);
+		//RegistryHandler.registerPackets(network);
+	}
 	
 	@EventHandler
 	public static void init(FMLInitializationEvent event)
@@ -39,7 +46,10 @@ public class Main
 	}
 	
 	@EventHandler
-	public static void postInit(FMLPostInitializationEvent event) {}
+	public static void postInit(FMLPostInitializationEvent event)
+	{
+		
+	}
 	
 	@EventHandler
 	public static void serverInit(FMLServerStartingEvent event) { RegistryHandler.serverRegistries(event); }

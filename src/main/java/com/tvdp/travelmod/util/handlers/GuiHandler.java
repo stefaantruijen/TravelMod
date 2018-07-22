@@ -4,6 +4,7 @@ import com.tvdp.travelmod.objects.blocks.machines.furnace.ContainerTravelFurnace
 import com.tvdp.travelmod.objects.blocks.machines.furnace.GuiTravelFurnace;
 import com.tvdp.travelmod.objects.blocks.machines.furnace.TileEntityTravelFurnace;
 import com.tvdp.travelmod.objects.blocks.machines.portal.GuiTravelPortal;
+import com.tvdp.travelmod.objects.blocks.machines.portal.TileEntityTravelPortal;
 import com.tvdp.travelmod.objects.blocks.machines.workbench.ContainerTravelWorkBench;
 import com.tvdp.travelmod.objects.blocks.machines.workbench.GuiTravelWorkBench;
 import com.tvdp.travelmod.util.Reference;
@@ -28,8 +29,7 @@ public class GuiHandler implements IGuiHandler
 	{
 		if (ID == Reference.GUI_TRAVEL_FURNACE)return new GuiTravelFurnace(player.inventory, (TileEntityTravelFurnace)world.getTileEntity(new BlockPos(x,y,z)));
 		if (ID == Reference.GUI_TRAVEL_WORKBENCH)return new GuiTravelWorkBench(player.inventory, world, x, y, z);
-		if (ID == Reference.GUI_TRAVEL_WORKBENCH)return new GuiTravelPortal(null);
+		if (ID == Reference.GUI_TRAVEL_PORTAL)return new GuiTravelPortal((TileEntityTravelPortal)world.getTileEntity(new BlockPos(x, y, z)), player);
 		return null;
 	}
-
 }

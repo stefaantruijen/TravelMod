@@ -24,4 +24,8 @@ tile.travel_workbench.name=Travel Workbech
 tile.travel_glass.name=Travel Glass
 tile.travel_glass_pane.name=Travel Glass Pane
 
+travel.setID=Travel Portal Setup Window
+travel.id=Travel identifier:
+gui.travel=TRAVEL!!!
+
 itemGroup.travelmodmaintab=Travel Mod

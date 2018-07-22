@@ -1,0 +1,15 @@
+{
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "plains": "2018-07-21 19:23:11 +0200",
+      "roofed_forest": "2018-07-21 19:24:03 +0200"
+    },
+    "done": false
+  },
+  "travmod:root": {
+    "criteria": {
+      "travel_root": "2018-07-21 19:24:01 +0200"
+    },
+    "done": true
+  }
+}

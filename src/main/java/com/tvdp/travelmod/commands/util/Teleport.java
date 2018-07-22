@@ -98,8 +98,8 @@ public class Teleport extends Teleporter
 			dimensionWorld.playerOldY = y;
 			dimensionWorld.playerOldZ = z;
 			
-			Triggers.TRAVEL_DIMENSION_ENTER_TRIGGER.trigger(entityPlayerMP);
-			System.out.println("test");
+			if (newDimension == 2)
+				Triggers.TRAVEL_DIMENSION_ENTER_TRIGGER.trigger(entityPlayerMP);
 			worldServer.getMinecraftServer().getPlayerList().transferPlayerToDimension(entityPlayerMP, newDimension, new Teleport(worldServer, newX, newY, newZ));
 			player.setPositionAndUpdate(newX, newY, newZ);
 		}

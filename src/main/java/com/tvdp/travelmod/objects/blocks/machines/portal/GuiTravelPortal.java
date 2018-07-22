@@ -1,44 +1,35 @@
 package com.tvdp.travelmod.objects.blocks.machines.portal;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.lwjgl.input.Keyboard;
 
-import com.tvdp.travelmod.world.WorldLocationSave;
+import com.tvdp.travelmod.Main;
+import com.tvdp.travelmod.api.IPortalBlockLocationed;
+import com.tvdp.travelmod.network.packets.PacketSSetTravelLocation;
 
-import io.netty.buffer.Unpooled;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.network.play.client.CPacketCustomPayload;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.entity.player.EntityPlayer;
 
 public class GuiTravelPortal extends GuiScreen
 {
-	/** Text field containing the command block's command. */
     private GuiTextField idTextField;
-    private final TravelPortalTileEntity commandBlock;
-    /** "Done" button for the GUI. */
+    private final TileEntityTravelPortal tileentity;
+    private final EntityPlayer player;
     private GuiButton doneBtn;
     private GuiButton cancelBtn;
     private GuiButton travelBtn;
-    private Map<BlockPos, String> locations = new HashMap<BlockPos, String>();
 
-    public GuiTravelPortal(TravelPortalTileEntity commandBlockIn)
+    public GuiTravelPortal(TileEntityTravelPortal tileentity, EntityPlayer player)
     {
-    	WorldLocationSave save = (WorldLocationSave)this.mc.world.loadData(WorldLocationSave.class, "TRAVEL_LOCATIONS");
-    	for (int i = 0; i < save.x.length && i < save.y.length && i < save.z.length && i < save.id.length; ++i)
-    	{
-    		locations.put(new BlockPos(save.x[i], save.y[i], save.z[i]), save.id[i]);
-    	}
-        this.commandBlock = commandBlockIn;
+        this.tileentity = tileentity;
+        this.player = player;
     }
 
-    /**
+	/**
      * Called from the main game loop to update the screen.
      */
     public void updateScreen()
@@ -52,23 +43,26 @@ public class GuiTravelPortal extends GuiScreen
      */
     public void initGui()
     {
-        final TravelPortalBaseLogic commandblockbaselogic = this.commandBlock.getCommandBlockLogic();
         Keyboard.enableRepeatEvents(true);
         this.buttonList.clear();
-        this.doneBtn = this.addButton(new GuiButton(0, this.width / 2 - 4 - 100, this.height / 4 + 120 + 12, 100, 20, I18n.format("gui.done")));
-        this.cancelBtn = this.addButton(new GuiButton(1, this.width / 2 + 4, this.height / 4 + 120 + 12, 100, 20, I18n.format("gui.cancel")));
-        this.travelBtn = this.addButton(new GuiButton(2, this.width / 2 + 4 + 100, this.height / 4 + 120 + 12, 100, 20, I18n.format("gui.travel")));
-        this.idTextField = new GuiTextField(2, this.fontRenderer, this.width / 2 - 150, 50, 300, 20);
+        this.doneBtn = this.addButton(new GuiButton(0, this.width / 2 - 4 - 50 - 100, this.height / 4 + 120 + 12, 100, 20, I18n.format("gui.done")));
+        this.cancelBtn = this.addButton(new GuiButton(1, this.width / 2 + 4 - 50, this.height / 4 + 120 + 12, 100, 20, I18n.format("gui.cancel")));
+        this.travelBtn = this.addButton(new GuiButton(2, this.width / 2 + 12 + 50, this.height / 4 + 120 + 12, 100, 20, I18n.format("gui.travel")));
+        this.idTextField = new GuiTextField(2, this.fontRenderer, this.width / 2 - 150, 70, 300, 20);
         this.idTextField.setMaxStringLength(32500);
         this.idTextField.setFocused(true);
+        this.idTextField.setText(tileentity.getLocation());
         this.doneBtn.enabled = false;
-        this.travelBtn.enabled = false;
+        
+        if (tileentity.getLocation().equals(""))
+        {
+        	this.travelBtn.enabled = false;
+        }
     }
 
     public void updateGui()
     {
-        TravelPortalBaseLogic commandblockbaselogic = this.commandBlock.getCommandBlockLogic();
-        this.idTextField.setText(commandblockbaselogic.getCommand());
+        this.idTextField.setText(tileentity.getLocation());
         this.doneBtn.enabled = true;
         this.travelBtn.enabled = true;
     }
@@ -80,6 +74,12 @@ public class GuiTravelPortal extends GuiScreen
     {
         Keyboard.enableRepeatEvents(false);
     }
+    
+    @Override
+    public boolean doesGuiPauseGame()
+    {
+    	return true;
+    }
 
     /**
      * Called by the controls from the buttonList when activated. (Mouse pressed for buttons)
@@ -88,24 +88,21 @@ public class GuiTravelPortal extends GuiScreen
     {
         if (button.enabled)
         {
-            TravelPortalBaseLogic commandblockbaselogic = this.commandBlock.getCommandBlockLogic();
-
             if (button.id == 1)
             {
                 this.mc.displayGuiScreen((GuiScreen)null);
             }
             else if (button.id == 0)
-            {
-                PacketBuffer packetbuffer = new PacketBuffer(Unpooled.buffer());
-                commandblockbaselogic.fillInInfo(packetbuffer);
-                packetbuffer.writeString(this.idTextField.getText());
-                this.mc.getConnection().sendPacket(new CPacketCustomPayload("MC|AutoCmd", packetbuffer));
+            {	
+            	tileentity.setLocation(this.idTextField.getText().toString());
+            	System.out.println("updated text");
+            	//Main.network.sendToServer(new PacketSSetTravelLocation(tileentity.getPos().getX(), tileentity.getPos().getY(), tileentity.getPos().getZ(), idTextField.getText()));
 
                 this.mc.displayGuiScreen((GuiScreen)null);
             }
             else if (button.id == 2)
             {
-                commandblockbaselogic.trigger(this.mc.world);
+            	//travel!!
             }
         }
     }
@@ -114,10 +111,13 @@ public class GuiTravelPortal extends GuiScreen
      * Fired when a key is typed (except F11 which toggles full screen). This is the equivalent of
      * KeyListener.keyTyped(KeyEvent e). Args : character (character on the key), keyCode (lwjgl Keyboard key code)
      */
+    @Override
     protected void keyTyped(char typedChar, int keyCode) throws IOException
     {
         this.idTextField.textboxKeyTyped(typedChar, keyCode);
 
+        doneBtn.enabled = true;
+        
         if (keyCode != 28 && keyCode != 156)
         {
             if (keyCode == 1)
@@ -147,7 +147,7 @@ public class GuiTravelPortal extends GuiScreen
     {
         this.drawDefaultBackground();
         this.drawCenteredString(this.fontRenderer, I18n.format("travel.setID"), this.width / 2, 20, 16777215);
-        this.drawString(this.fontRenderer, I18n.format("travel.id"), this.width / 2 - 150, 40, 10526880);
+        this.drawString(this.fontRenderer, I18n.format("travel.id"), this.width / 2 - 150, 60, 10526880);
         this.idTextField.drawTextBox();
         int i = 75;
         int j = 0;

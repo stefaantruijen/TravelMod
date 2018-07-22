@@ -6,6 +6,7 @@ import com.tvdp.travelmod.init.BiomeInit;
 import com.tvdp.travelmod.init.BlockInit;
 import com.tvdp.travelmod.init.DimensionInit;
 import com.tvdp.travelmod.init.ItemInit;
+import com.tvdp.travelmod.network.packets.PacketSSetTravelLocation;
 import com.tvdp.travelmod.objects.blocks.machines.workbench.TravelWorkBenchCraftingDelegateRecipe;
 import com.tvdp.travelmod.objects.blocks.machines.workbench.TravelWorkBenchCraftingManager;
 import com.tvdp.travelmod.objects.blocks.machines.workbench.TravelWorkBenchRecipes;
@@ -22,7 +23,9 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
 
 @EventBusSubscriber
 public class RegistryHandler
@@ -82,6 +85,11 @@ public class RegistryHandler
 				}
 			}
 		}
+	}
+	
+	public static void registerPackets(SimpleNetworkWrapper network)
+	{
+		//network.registerMessage(PacketSSetTravelLocation.Handler.class, PacketSSetTravelLocation.class, 1, Side.SERVER);
 	}
 	
 	public static void otherRegistries()

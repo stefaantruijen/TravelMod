@@ -9,7 +9,7 @@ import com.tvdp.travelmod.objects.blocks.TravelBlock;
 import com.tvdp.travelmod.objects.blocks.TravelGlass;
 import com.tvdp.travelmod.objects.blocks.TravelGlassPane;
 import com.tvdp.travelmod.objects.blocks.machines.furnace.BlockTravelFurnace;
-import com.tvdp.travelmod.objects.blocks.machines.portal.TravelBlockPortal;
+import com.tvdp.travelmod.objects.blocks.machines.portal.BlockTravelPortal;
 import com.tvdp.travelmod.objects.blocks.machines.workbench.TravelWorkBenchBlock;
 
 import net.minecraft.block.Block;
@@ -29,7 +29,7 @@ public class BlockInit
 	
 	public static final Block TRAVEL_BLOCK = new TravelBlock("travel_block");
 	public static final Block TRAVEL_BLOCK_DECORATION = new TravelBlock("travel_block_decoration");
-	public static final Block TRAVEL_BLOCK_PORTAL = new TravelBlockPortal("travel_block_portal");
+	public static final Block TRAVEL_BLOCK_PORTAL = new BlockTravelPortal("travel_block_portal", Material.IRON);
 	public static final Block TRAVEL_GLASS = new TravelGlass("travel_glass", Material.GLASS);
 	public static final Block TRAVEL_GLASS_PANE = new TravelGlassPane("travel_glass_pane", Material.GLASS);
 	

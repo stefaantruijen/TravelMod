@@ -10,6 +10,7 @@ public class WorldLocationSave extends WorldSavedData
 	public int[] x;
 	public int[] y;
 	public int[] z;
+	public int[] dimensions;
 	public String[] id;
 	
 	public WorldLocationSave(String name) {
@@ -21,6 +22,7 @@ public class WorldLocationSave extends WorldSavedData
 		x = nbt.getIntArray("X");
 		y = nbt.getIntArray("Y");
 		z = nbt.getIntArray("Z");
+		dimensions = nbt.getIntArray("dimensions");
 		String locations = nbt.getString("Locations");
 		id = locations.split("=x=_=x=");
 	}
@@ -30,6 +32,7 @@ public class WorldLocationSave extends WorldSavedData
 		compound.setIntArray("X", x);
 		compound.setIntArray("Y", y);
 		compound.setIntArray("Z", z);
+		compound.setIntArray("dimensions", dimensions);
 		compound.setString("Locations", String.join("=x=_=x=", id));
 		return compound;
 	}
